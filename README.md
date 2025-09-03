@@ -1,5 +1,5 @@
-## Bluebird Readability Module
-### The built-in reading mode module for Bluebird, powered by [Mozilla Readability](https://github.com/mozilla/readability)
+## Horizon Readability Module
+### The built-in reading mode module for Horizon, powered by [Mozilla Readability](https://github.com/mozilla/readability)
 
 ![image](https://github.com/user-attachments/assets/8ba7c2c6-7f1e-4619-9fb7-3393a279d3c7)
 
