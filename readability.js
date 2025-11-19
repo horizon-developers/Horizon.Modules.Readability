@@ -1,19 +1,27 @@
 import Readability from "./libs/readability.js";
+import DOMPurify from 'dompurify';
+import ArticleStyles from './styles.css';
 
-const article = new Readability(document).parse();
-const title = article.title;
-const byline = article.byline;
-const content = article.content;
+const basearticle = new Readability(document).parse();
 
-const titleHeader = "<title>" + title + "</title>\n";
-const stylesHeader = "<style>body { font-family: 'Segoe UI'; max-width: 600px; margin: auto; margin-top: 20px; } img { max-width: 100%; height: auto; } @media (prefers-color-scheme: dark) { body { background-color: #202020; color: white; } a:link { color: #9cdcfe; } a:visited { color: #9cdcfe; } }</style>"
+if (basearticle) {
+    const purify = DOMPurify(window);
 
-document.getElementsByTagName("head")[0].innerHTML = titleHeader + stylesHeader;
-document.body.innerHTML = null;
-document.body.innerHTML = "<h2>" + title + "</h2>";
+    const article = purify.sanitize(basearticle.content);
 
-if (byline) {
-    document.body.innerHTML += "<h3>" + byline + "</h3";
+    const title = basearticle.title;
+    const byline = basearticle.byline;
+    const content = article;
+
+    const titleHeader = "<title>" + title + "</title>\n";
+
+    document.getElementsByTagName("head")[0].innerHTML = titleHeader + "<style>" + ArticleStyles + "</style>";
+    document.body.innerHTML = null;
+    document.body.innerHTML = "<h2>" + title + "</h2>";
+
+    if (byline) {
+        document.body.innerHTML += "<h3>" + byline + "</h3";
+    }
+
+    document.body.innerHTML += content;
 }
-
-document.body.innerHTML += content;

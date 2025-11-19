@@ -2,9 +2,9 @@
   "name": "bluebird.modules.readability",
   "private": true,
   "scripts": {
-    "build": "esbuild readability.js --minify --bundle --outdir=dist"
+    "build": "bun build readability.js --production --outdir=dist"
   },
   "dependencies": {
-    "esbuild": "^0.27.0"
+    "dompurify": "^3.3.0"
   }
 }

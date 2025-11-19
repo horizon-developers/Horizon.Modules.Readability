@@ -1,0 +1,26 @@
+body {
+    font-family: 'Segoe UI';
+    max-width: 75vh;
+    margin: auto;
+    margin-top: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #202020;
+        color: white;
+    }
+
+    a:link {
+        color: #9cdcfe;
+    }
+
+    a:visited {
+        color: #9cdcfe;
+    }
+}
